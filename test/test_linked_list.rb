@@ -428,7 +428,7 @@ class LinkedListTest < Test::Unit::TestCase
   def test_59_insert_before_item_error_if_not_found
     ll = LinkedList.new("a","b","c","d")
     assert_equal "| a, b, c, d |", ll.to_s
-    assert_raises IndexError do
+    assert_raises ArgumentError do
       ll.insert_before('foo', 'z')
     end
   end

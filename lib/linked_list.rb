@@ -97,6 +97,13 @@ class LinkedList
     end
   end
 
+  def insert_before compare, object
+    index = self.indexOf(compare)
+    raise ArgumentError.new("Does not exist in list") unless index
+
+    self.insert(index, object)
+  end
+
   def size
     node = @first_node
     return 0 unless node
