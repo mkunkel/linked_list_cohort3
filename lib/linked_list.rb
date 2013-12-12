@@ -80,8 +80,21 @@ class LinkedList
 
   def insert index, object
     raise IndexError.new("Index must be positive") if index < 0
-    raise IndexError.new("Index too high") if index < self.size
-
+    raise IndexError.new("Index too high") if index > self.size
+    next_node = @first_node
+    if index == 0
+      ll = LinkedListItem.new(object)
+      ll.next_list_item = next_node
+      @first_node = ll
+    elsif
+      for i in 0...index
+        previous_node = next_node
+        next_node = previous_node.next_list_item
+      end
+      ll = LinkedListItem.new(object)
+      ll.next_list_item = next_node
+      previous_node.next_list_item = ll
+    end
   end
 
   def size

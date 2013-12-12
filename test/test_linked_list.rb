@@ -404,4 +404,33 @@ class LinkedListTest < Test::Unit::TestCase
     end
   end
 
+  def test_56_insert_before_item_at_first_item
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert_before('a', 'z')
+    assert_equal "| z, a, b, c, d |", ll.to_s
+  end
+
+  def test_57_insert_before_item_at_last_item
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert_before('d', 'z')
+    assert_equal "| a, b, c, z, d |", ll.to_s
+  end
+
+  def test_58_insert_before_item_in_middle
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert_before('c', 'z')
+    assert_equal "| a, b, z, c, d |", ll.to_s
+  end
+
+  def test_59_insert_before_item_error_if_not_found
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    assert_raises IndexError do
+      ll.insert_before('foo', 'z')
+    end
+  end
+
 end
