@@ -439,4 +439,10 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal ['a', 'b', 'c', 'd'], ll.to_array
   end
 
+  def test_61_contains?
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal false, ll.contains("e")
+    assert_equal true, ll.contains("c")
+  end
+
 end
