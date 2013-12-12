@@ -129,6 +129,7 @@ class LinkedList
       object2 = node.payload
 
       sorted = object1.to_s <=> object2.to_s
+      sorted = 1 if object1.is_a?(Symbol) && !object2.is_a?(String)
       return false if sorted == 1
     end
     return true
@@ -142,10 +143,10 @@ class LinkedList
       for i in 0...size - 1
         item1 = get(i)
         item2 = get(i+1)
-        if item1.class == Symbol && item2.class != Symbol
+        if item1.is_a?(Symbol) && !item2.is_a?(Symbol)
           swap_with_next(i)
           sorted = false
-        elsif item1.to_s > item2.to_s && item2.class != Symbol
+        elsif item1.to_s > item2.to_s && !item2.is_a?(Symbol)
           swap_with_next(i)
           sorted = false
         end

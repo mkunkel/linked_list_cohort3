@@ -19,8 +19,8 @@ class LinkedListItem
   end
 
   def <=> object
-    return 1 if @payload.class == Symbol && object.payload.class != Symbol
-    return -1 if @payload.class != Symbol && object.payload.class == Symbol
+    return 1 if @payload.is_a?(Symbol) && !object.payload.is_a?(Symbol)
+    return -1 if !@payload.is_a?(Symbol) && object.payload.is_a?(Symbol)
     @payload.to_s <=> object.payload.to_s
   end
 

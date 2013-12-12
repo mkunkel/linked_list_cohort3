@@ -364,4 +364,11 @@ class LinkedListTest < Test::Unit::TestCase
       ll.swap_with_next(3)
     end
   end
+
+  # Additional tests
+
+  def test_51_insert_at_first_item
+
+  end
+
 end
