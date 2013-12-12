@@ -365,10 +365,27 @@ class LinkedListTest < Test::Unit::TestCase
     end
   end
 
-  # Additional tests
+  # Additional tests for practice
 
   def test_51_insert_at_first_item
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert(0, 'z')
+    assert_equal "| z, a, b, c, d |", ll.to_s
+  end
 
+  def test_52_insert_at_last_item
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert(4, 'z')
+    assert_equal "| a, b, c, d, z |", ll.to_s
+  end
+
+  def test_53_insert_in_middle
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.insert(2, 'z')
+    assert_equal "| a, b, z, c, d |", ll.to_s
   end
 
 end
