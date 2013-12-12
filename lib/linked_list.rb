@@ -78,6 +78,16 @@ class LinkedList
     end
   end
 
+  def clear
+    next_node = @first_node
+    @first_node = nil
+    while next_node.next_list_item do
+      current_node = next_node
+      next_node = next_node.next_list_item
+      current_node.next_list_item = nil
+    end
+  end
+
   def insert index, object
     raise IndexError.new("Index must be positive") if index < 0
     raise IndexError.new("Index too high") if index > self.size

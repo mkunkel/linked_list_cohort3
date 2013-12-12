@@ -456,6 +456,7 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal "| a, b, c, d |", ll.to_s
     ll.clear
     assert_equal(0, ll.size)
+
   end
 
 end
