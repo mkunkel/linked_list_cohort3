@@ -159,6 +159,17 @@ class LinkedList
     return payloads
   end
 
+  def contains? object
+    return false unless @first_node
+    node = @first_node
+    found = node.payload == object
+    while node.next_list_item do
+      node = node.next_list_item
+      found = true if node.payload == object
+    end
+    return found
+  end
+
   def sorted?
     return true unless @first_node
     node = @first_node

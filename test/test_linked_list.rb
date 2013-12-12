@@ -439,10 +439,23 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal ['a', 'b', 'c', 'd'], ll.to_array
   end
 
+  def test_61_to_array_returns_empty_array
+    ll = LinkedList.new
+    assert_equal(0, ll.size)
+    assert_equal [], ll.to_array
+  end
+
   def test_61_contains?
     ll = LinkedList.new("a","b","c","d")
-    assert_equal false, ll.contains("e")
-    assert_equal true, ll.contains("c")
+    assert_equal false, ll.contains?("e")
+    assert_equal true, ll.contains?("c")
+  end
+
+  def test_62_clear
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    ll.clear
+    assert_equal(0, ll.size)
   end
 
 end
