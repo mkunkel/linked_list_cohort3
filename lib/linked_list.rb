@@ -145,6 +145,20 @@ class LinkedList
     return string + strings.join(", ") + " |"
   end
 
+  def to_array
+    return [] unless @first_node
+    node = @first_node
+    payloads = Array.new
+    payloads << node.payload
+    while node.next_list_item do
+      if node.next_list_item
+        node = node.next_list_item
+      end
+      payloads << node.payload
+    end
+    return payloads
+  end
+
   def sorted?
     return true unless @first_node
     node = @first_node

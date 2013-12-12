@@ -433,4 +433,10 @@ class LinkedListTest < Test::Unit::TestCase
     end
   end
 
+  def test_60_to_array_returns_array
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    assert_equal ['a', 'b', 'c', 'd'], ll.to_array
+  end
+
 end
