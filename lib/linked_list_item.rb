@@ -1,4 +1,5 @@
 class LinkedListItem
+  include Comparable
   attr_reader :next_list_item
   attr_accessor :payload
   def initialize(payload)
@@ -17,22 +18,14 @@ class LinkedListItem
     @next_list_item.nil?
   end
 
-  def > object
-    return true if @payload.class == Symbol
-    @payload.to_s > object.payload.to_s
+  def <=> object
+    return 1 if @payload.class == Symbol && object.payload.class != Symbol
+    return -1 if @payload.class != Symbol && object.payload.class == Symbol
+    @payload.to_s <=> object.payload.to_s
   end
 
   def === object
     self.object_id == object.object_id
-  end
-
-  def == object
-    @payload.to_s == object.payload.to_s
-  end
-
-  def < object
-    return true if object.payload.class == Symbol
-    @payload.to_s < object.payload.to_s
   end
 
 end
