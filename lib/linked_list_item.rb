@@ -18,6 +18,7 @@ class LinkedListItem
   end
 
   def > object
+    return true if @payload.class == Symbol
     @payload.to_s > object.payload.to_s
   end
 
@@ -30,6 +31,7 @@ class LinkedListItem
   end
 
   def < object
+    return true if object.payload.class == Symbol
     @payload.to_s < object.payload.to_s
   end
 
