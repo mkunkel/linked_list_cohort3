@@ -388,4 +388,20 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal "| a, b, z, c, d |", ll.to_s
   end
 
+  def test_54_insert_error_if_negative_index
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    assert_raises IndexError do
+      ll.insert(-1, 'z')
+    end
+  end
+
+  def test_55_insert_error_if_index_too_high
+    ll = LinkedList.new("a","b","c","d")
+    assert_equal "| a, b, c, d |", ll.to_s
+    assert_raises IndexError do
+      ll.insert(7, 'z')
+    end
+  end
+
 end

@@ -76,6 +76,11 @@ class LinkedList
     else
       @first_node = node.next_list_item ? node.next_list_item : nil
     end
+  end
+
+  def insert index, object
+    raise IndexError.new("Index must be positive") if index < 0
+    raise IndexError.new("Index too high") if index < self.size
 
   end
 
